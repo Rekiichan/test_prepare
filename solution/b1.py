@@ -5,6 +5,8 @@ Enter any 2 natural numbers, use the operators to output the number with the lar
      + calculation for the largest number : 2+7 (example)
      + calculation for the smallest number: 2/7 (still an example)
 '''
+import random, os
+from pathlib import Path
 
 def solution(num1, num2):
     # used for scan
@@ -33,18 +35,49 @@ def solution(num1, num2):
 
     return num_max, num_min
 
+def write_txt(data,filename,type):
+    """ write_txt
+
+    Args:
+        data: du lieu ghi vao txt
+        filename: ten file
+        type: input hay output
+    """
+    file_name = Path(__file__).resolve().parent.parent.joinpath(f"test_case/b1/{type}/{filename}.txt")
+
+    # Open the file in write mode and write the data to it
+    with open(file_name, 'w') as file:
+        file.write(data)
+
+def make_test_case():
+    counter = 1
+    while counter < 100:
+        num1 = random.randint(1, 10000)
+        num2 = random.randint(1, 10000)
+        num_max, num_min = solution(num1,num2)
+
+        data_input = f"{num1} {num2}"
+        data_output = f"{num_max} {num_min}"
+
+        file_name_input = f"input{counter}"
+        file_name_output = f"output{counter}"
+
+        write_txt(data_input,file_name_input,'input')
+        write_txt(data_output,file_name_output,'output')
+        counter+=1
+
 if __name__ == '__main__':
     
-  # Input two natural numbers
-  num1 = int(input())
-  num2 = int(input())
+    num1 = int(input())
+    num2 = int(input())
 
-  try:
-    max_res, min_res = solution(num1, num2)
-  except Exception as exc:
-    print('Exception: \n',exc)
-  else:
-    # Display the results
-    print(max_res)
-    print(min_res)
-    
+    try:
+        max_res, min_res = solution(num1, num2)
+    except Exception as exc:
+        print('Exception: \n',exc)
+    else:
+        print(max_res,min_res)
+
+
+    # make test case
+    make_test_case()
