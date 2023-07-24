@@ -52,12 +52,16 @@ def write_txt(data,filename,type):
 def make_test_case():
     counter = 1
     while counter < 100:
-        num1 = random.randint(1, 10000)
-        num2 = random.randint(1, 10000)
+        if counter < 3:
+            num1 = random.randint(1, 10)
+            num2 = random.randint(1, 10)
+        else:
+            num1 = random.randint(1, 10000)
+            num2 = random.randint(1, 10000)
         num_max, num_min = solution(num1,num2)
 
-        data_input = f"{num1} {num2}"
-        data_output = f"{num_max} {num_min}"
+        data_input = f"{num1}\n{num2}\n"
+        data_output = f"{num_max} {num_min}\n"
 
         file_name_input = f"input{counter}"
         file_name_output = f"output{counter}"
@@ -68,15 +72,15 @@ def make_test_case():
 
 if __name__ == '__main__':
     
-    num1 = int(input())
-    num2 = int(input())
+    # num1 = int(input())
+    # num2 = int(input())
 
-    try:
-        max_res, min_res = solution(num1, num2)
-    except Exception as exc:
-        print('Exception: \n',exc)
-    else:
-        print(max_res,min_res)
+    # try:
+    #     max_res, min_res = solution(num1, num2)
+    # except Exception as exc:
+    #     print('Exception: \n',exc)
+    # else:
+    #     print(max_res,min_res)
 
 
     # make test case
