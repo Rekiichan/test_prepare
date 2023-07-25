@@ -43,7 +43,7 @@ def get_oldest_emp_and_list(emps):
 def get_age_distance(emps, x):
     if x >= len(emps):
         return Exception
-
+    # chua hieu requirement
     return -1
 
 if __name__ == '__main__':  
