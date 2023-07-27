@@ -72,16 +72,16 @@ def make_test_case():
 
 if __name__ == '__main__':
     
-    # num1 = int(input())
-    # num2 = int(input())
+    num1 = int(input())
+    num2 = int(input())
 
-    # try:
-    #     max_res, min_res = solution(num1, num2)
-    # except Exception as exc:
-    #     print('Exception: \n',exc)
-    # else:
-    #     print(max_res,min_res)
+    try:
+        max_res, min_res = solution(num1, num2)
+    except Exception as exc:
+        print('Exception: \n',exc)
+    else:
+        print(max_res,min_res)
 
 
     # make test case
-    make_test_case()
+    # make_test_case()
